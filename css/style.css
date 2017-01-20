@@ -1,10 +1,76 @@
 *{
 	box-sizing: border-box;
-	font-family: inherit !important;
+	font-family: inherit;
 }
 
 body,
 html {
 	margin: 0;
 	padding: 0;
+	display: flex;
+	flex-flow: column;
+	font-family: sans-serif;
+	font-size: 100%;
+}
+
+header,
+#content,
+footer{
+	display: flex;
+}
+
+header,
+footer{
+	padding: 30px;
+	align-items: center;
+	color: #fff;
+}
+
+header{
+	font-size: 2rem;
+	background: #77bf43;
+}
+
+#content{
+	flex: 1;
+}
+
+footer{
+	justify-content: center;
+	background: #1e6fb7;
+}
+
+form{
+	display: flex;
+	flex-flow: column;
+	padding: 8px;
+}
+
+input,
+button{
+	outline: none;
+}
+
+button,
+input[type="button"],
+input[type="submit"]{
+	background: #f1592a;
+	border: none;
+	padding: 8px 16px;
+	font-size: 1rem;
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	margin: 4px;
+	border-radius: 2px;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+label[for]{
+	cursor: pointer;
+}
+
+form > * + *{
+	margin-top: 8px;
 }
