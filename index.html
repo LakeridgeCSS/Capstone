@@ -1,41 +1,82 @@
 <head>
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/script.js"></script>
+	<title>LRCSS</title>
 </head>
 
-<header>Header</header>
+<header><h1>Header</h1></header>
 <div id="content">
-	<form>
-		<div class="input-container">
-			<div class="title">Text Input</div>
-			<input type="text">
-		</div>
+    <div id="container">
+        <form>
+            <div class="input-container">
+                <div class="title">Text Input</div>
+                <input type="text" placeholder="Plain Text">
+                <input type="password" placeholder="Password">
+            </div>
 
-		<div class="input-container">
-			<div class="title">Checkbox Input</div>
-			<input type="checkbox" value="1" id="c1"><label for="c1">1</label>
-			<input type="checkbox" value="2" id="c2"><label for="c2">2</label>
-			<input type="checkbox" value="3" id="c3"><label for="c3">3</label>
-		</div>
+            <div class="input-container">
+                <div class="title">Checkbox Input</div>
+                <label for="c1"><input type="checkbox" value="1" id="c1">1</label>
+                <label for="c2"><input type="checkbox" value="2" id="c2">2</label>
+                <label for="c3"><input type="checkbox" value="3" id="c3">3</label>
+            </div>
 
-		<div class="input-container">
-			<div class="title">Date Input</div>
-			<input type="date">
-		</div>
+            <div class="input-container">
+                <div class="title">Date Input</div>
+                <input type="datetime-local">
+                <input type="date">
+            </div>
 
-		<div class="input-container">
-			<div class="title">Radio Input</div>
-			<input type="radio" name="radio" value="yes" id="r1"><label for="r1">Yes</label>
-			<input type="radio" name="radio" value="no" id="r2"><label for="r2">No</label>
-			<input type="radio" name="radio" value="maybe" id="r3"><label for="r3">Maybe</label>
-		</div>
+            <div class="input-container">
+                <div class="title">Radio Input</div>
+                <label for="r1"><input type="radio" name="radio" value="yes" id="r1">Yes</label>
+                <label for="r2"><input type="radio" name="radio" value="no" id="r2">No</label>
+                <label for="r3"><input type="radio" name="radio" value="maybe" id="r3">Maybe</label>
+            </div>
 
-		<div class="input-container">
-			<div class="title">Buttons</div>
-			<button>Button</button>
-			<input type="button" value="Input">
-			<input type="submit">
-		</div>
-	</form>
+            <div class="input-container">
+                <div class="title">Number Input</div>
+                <input type="number" min="1" max="12">
+            </div>
+
+            <div class="input-container">
+                <div class="title">Time Input (For Fallback)</div>
+                <div class="time-input">            
+                    <input type="number" min="1" max="12">:
+                    <input type="number" min="1" max="59">:
+                    <input type="number" min="1" max="59">
+                    <label for="am"><input type="radio" name="time" value="am" id="am">AM</label>
+                    <label for="pm"><input type="radio" name="time" value="pm" id="pm">PM</label>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <div class="title">Dropdown Input</div>
+                <select>
+                    <option value="Value 1">Value 1</option>
+                    <option value="Value 2">Value 2</option>
+                    <option value="Value 3">Value 3</option>
+                </select>
+            </div>
+
+            <div class="input-container">
+                <div class="title">Modifiable Dropdown Input</div>
+                <input id="add" type="text" placeholder="Item to add">
+                <select id="editable">
+                    <option value="Value 1">Value 1</option>
+                    <option value="Value 2">Value 2</option>
+                    <option value="Value 3">Value 3</option>
+                </select>
+            </div>
+
+            <div class="input-container">
+                <div class="title">Buttons</div>
+                <button>Button</button>
+                <input type="button" value="Input">
+                <input type="submit">
+                <input type="reset">
+            </div>
+        </form>
+    </div>
 </div>
 <footer>Footer</footer>
