@@ -16,21 +16,54 @@ window.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
-    
-    document.getElementById('add').addEventListener('keydown', function(e){
-        if(e.keyCode == 13){
-            var existing = document.querySelectorAll("#editable option"),
-                existingList = [];
-            existing.forEach(function(e){
-                existingList.push(e.value);
-            });
-            if(existingList.indexOf(this.value) === -1){
-                var addOption = document.createElement('option');
-                addOption.setAttribute('value', this.value);
-                addOption.innerText = this.value;
-                document.getElementById("editable").appendChild(addOption);
+
+    document.querySelectorAll('.add').forEach(function (e) {
+        e.addEventListener('keydown', function (k) {
+            if (k.keyCode == 13) {
+                var existing = e.parentNode.querySelectorAll('.editable'),
+                    existingList = [];
+                existing.forEach(function (e) {
+                    existingList.push(e.value);
+                });
+                if (existingList.indexOf(this.value) === -1) {
+                    var addOption = document.createElement('option');
+                    addOption.setAttribute('value', this.value);
+                    addOption.innerText = this.value;
+                    e.parentNode.querySelector('.editable').appendChild(addOption);
+                }
+                this.value = "";
             }
-            this.value = '';
-        }
+        })
+    });
+
+    document.querySelectorAll('.timer button').forEach(function (e) {
+        e.addEventListener('click', function () {
+            if (this.innerHTML == 'Start' || this.innerHTML == 'Restart') {
+                var now = Date.now(),
+                    minutes = 0,
+                    hours = 0;
+                go = setInterval(function () { //unscoped for a reason
+                    if (minutes > 59) {
+                        hours++;
+                        minutes = 0;
+                    }
+                    if (parseFloat(e.parentNode.querySelector('.seconds').innerHTML) > 59) {
+                        minutes++;
+                        now = Date.now();
+                    }
+                    e.parentNode.querySelector('.hours-minutes').innerText = pad(hours) + ":" + pad(minutes) + ":";
+                    e.parentNode.querySelector('.seconds').innerText = ((Date.now() - now) / 1000).toFixed(3);
+                }, 1);
+                this.innerHTML = "Stop";
+            } else {
+                clearInterval(go);
+                this.innerHTML = "Restart";
+                this.parentNode.querySelector(".time-value").value = e.parentNode.querySelector('.hours-minutes').innerText + e.parentNode.querySelector('.seconds').innerText;
+            }
+        });
     });
 });
+
+function pad(n) {
+    return (n < 10) ? ("0" + n) : n;
+}
