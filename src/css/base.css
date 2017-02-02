@@ -12,3 +12,10 @@ html {
 	font-family: sans-serif;
     font-size: 100%;
 }
+
+#container{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex-flow: column;
+}
