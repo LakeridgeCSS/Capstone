@@ -1,3 +1,90 @@
+/*
+	#f1592a; - orange
+	#77bf43; - green
+	#1e6fb7; - blue
+*/
+html{
+	background: #f1592a;
+	animation: background-fade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 #container{
-	background: #eee;
+	padding: 10vmax 10vmax;
+}
+
+#content {
+	flex: 1;
+ 	display: flex;
+	overflow-y: auto;
+}
+
+.login-panel{
+	display: flex;
+	flex-flow: column;
+	width: 100%;
+	min-height: min-content;
+}
+
+.login-panel * + *{
+	margin-top: 4vmax;
+}
+
+.logo{
+	width: calc(100% - 6vmax);
+	align-self: center;
+}
+
+form{
+	align-items: center;
+	margin-bottom: 4vmax;
+}
+
+input{
+	font-size: 3rem;
+}
+
+input[type=text],
+input[type=password]{
+	outline: none;
+	background: none;
+	border: none;
+	border-bottom: 4px solid #fff;
+	width: 100%;
+	padding: 0.1em 0.2em;
+	color: #fff;
+	transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type=text]:focus,
+input[type=password]:focus{
+	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+}
+
+input[type=submit]{
+	padding: 32px 64px;
+	background: #fff;
+	border: none;
+	border-radius: 25% / 50%;
+	color: #f1592a;
+	animation: color-fade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+input::placeholder{
+	color: rgba(255,255,255,0.8);
+}
+input::-moz-placeholder,
+input::-webkit-input-placeholder,
+input::-ms-input-placeholder{
+	color: rgba(255,255,255,0.8);
+}
+
+@keyframes color-fade{
+	0%,100%{color: #f1592a;}
+	33.33%{color: #77bf43;}
+	66.66%{color: #1e6fb7;}
+}
+@keyframes background-fade{
+	0%,100%{background: #f1592a;}
+	33.33%{background: #77bf43;}
+	66.66%{background: #1e6fb7;}
 }

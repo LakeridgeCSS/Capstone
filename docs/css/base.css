@@ -19,3 +19,26 @@ html {
 	width: 100%;
 	flex-flow: column;
 }
+
+form{
+	display: flex;
+	flex-flow: column;
+	margin: 0;
+}
+
+input,
+button,
+select{
+	outline: none;
+}
+
+button,
+input[type=button],
+input[type=submit],
+input[type=reset]{
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
