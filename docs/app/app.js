@@ -10,16 +10,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	//we must wait for all view listeners to be present
 	window.addEventListener('load', function () {
 		//url logic
-		let loc = location.href;
-		let i = 0;
-		if(loc.indexOf('#') != -1){
+		let loc = location.hash;
+		let i;
+		loc = loc.indexOf('#') != -1 ?
+			loc.slice(loc.indexOf('#') + 1) : 'login';
+		i = routes.indexOf(loc) != -1 ?
+			routes.indexOf(loc) : 0;
+		console.log(loc + i);
+		/*if(loc.indexOf('#') != -1){
 			loc = loc.slice(loc.indexOf('#') + 1);
 			if (routes.indexOf(loc) != -1) {
 				i = routes.indexOf(loc);
-				//no need to rewrite the url in this case
-				noRewrite = true;
 			}
-		}
+		}*/
 		load(routes[i]);
 	});
 });
@@ -52,11 +55,9 @@ function load(view) {
 		let viewChange = new CustomEvent('viewChange', { 'detail': view });
 		document.dispatchEvent(viewChange);
 	};
-}	
+}
 
 //url rewrite on view change
 document.addEventListener('viewChange', function (e) {
-	if(!noRewrite){
-		location.href += '#' + e.detail;
-	}	
+	location.hash = e.detail != 'login' ? e.detail : '';
 });
