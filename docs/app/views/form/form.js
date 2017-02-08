@@ -1,5 +1,6 @@
-document.addEventListener('viewChange', function(e){
-	if(e.detail == 'form'){
-		console.log('form view js');
+document.addEventListener('viewChange', function (e) {
+	if (e.detail == 'form') {
+		console.log(e.detail);
 	}
 });
+

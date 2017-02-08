@@ -4,8 +4,8 @@ Everything needs to reasonably work in:
 - Chrome
 - Firefox
 - Edge
-- IE 10+ *(maybe 9, but unlikely)*
+- Safari
+- No IE support
 
 Current Bugs:
-- Hash is left when manually browsing to #login
-- Manual # entry while in the app requires 2 attempts!
+- Hash is left when navigating to browsing to #login (this is an easy fix eventually)

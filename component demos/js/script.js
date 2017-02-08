@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.add').forEach(function (e) {
         e.addEventListener('keydown', function (k) {
             if (k.keyCode == 13) {
-                var existing = e.parentNode.querySelectorAll('.editable'),
+                var existing = e.parentNode.querySelectorAll('.editable *'),
                     existingList = [];
                 existing.forEach(function (e) {
                     existingList.push(e.value);
@@ -28,6 +28,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 if (existingList.indexOf(this.value) === -1) {
                     var addOption = document.createElement('option');
                     addOption.setAttribute('value', this.value);
+                    addOption.setAttribute('selected', 'selected');
                     addOption.innerText = this.value;
                     e.parentNode.querySelector('.editable').appendChild(addOption);
                 }

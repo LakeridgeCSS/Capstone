@@ -7,24 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.head.appendChild(script);
 	});
 
-	//we must wait for all view listeners to be present
+	//wait for all view listeners to be present before loading the default view
 	window.addEventListener('load', function () {
-		//url logic
-		let loc = location.hash;
-		let i;
-		loc = loc.indexOf('#') != -1 ?
-			loc.slice(loc.indexOf('#') + 1) : 'login';
-		i = routes.indexOf(loc) != -1 ?
-			routes.indexOf(loc) : 0;
-		console.log(loc + i);
-		/*if(loc.indexOf('#') != -1){
-			loc = loc.slice(loc.indexOf('#') + 1);
-			if (routes.indexOf(loc) != -1) {
-				i = routes.indexOf(loc);
-			}
-		}*/
-		load(routes[i]);
-	});
+		load(routes[0]);
+	});	
 });
 
 //grabs the new view and replaces stale view
@@ -37,10 +23,10 @@ function load(view) {
 		if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
 			document.getElementById('container').innerHTML = request.response;
 			let style = document.querySelectorAll('link');
-			style.forEach(function (e) {
-				if (!e.getAttribute('href').includes('base.css')) {
+			Object.keys(style).forEach(function (e) {
+				if (!style[e].getAttribute('href').includes('base.css')) {
 					//can't do view conditional css; so it's removed
-					e.remove();
+					style[e].remove();
 				}
 			});
 			style = document.createElement('link');
@@ -59,5 +45,16 @@ function load(view) {
 
 //url rewrite on view change
 document.addEventListener('viewChange', function (e) {
-	location.hash = e.detail != 'login' ? e.detail : '';
+	//rewrite logic removed for now
+	location.hash = e.detail;
+});
+
+window.addEventListener('hashchange', function(){
+	if (this.location.hash.indexOf('#') != -1){
+		let entry = this.location.hash.slice(this.location.hash.indexOf('#') + 1);
+		if (routes.indexOf(entry) != -1){
+			let index = routes.indexOf(entry);
+			load(routes[index]);
+		}
+	}
 });
