@@ -1,5 +1,6 @@
+'use strict';
 document.addEventListener('viewChange', function (e) {
-	if (e.detail == 'form') {
+	if(e.detail == 'form'){
 		console.log(e.detail);
 	}
 });
