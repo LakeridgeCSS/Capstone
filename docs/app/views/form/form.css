@@ -1,0 +1,159 @@
+.radio-group{
+	display: flex;
+}
+
+#container{
+	flex: 1;
+}
+
+form{
+	align-items: flex-start;
+	padding: 16px;
+	min-height: min-content;
+	width: 100%;
+	max-width: 600px;
+}
+
+#behaviour-select{
+	display: flex;
+}
+
+#content{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	flex: 1;
+	overflow-y: auto;
+}
+
+.mod-drop{
+	display: flex;
+	flex-flow: column;
+}
+
+#title{
+	font-size: 32px;
+	padding: 16px;
+	width: 100%;
+	color: #f1592a;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.prompt{
+	font-size: 24px;
+}
+
+select,
+label{
+	font-size: 18px;
+}
+
+label{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.radio-group label{
+	margin-top: 0 !important;
+	flex: 1 0 0;
+	flex-flow: column;
+}
+
+.radio-group input{
+	height: 32px;
+	width: 32px;
+	margin: 0 0 8px 0;
+}
+
+.radio-group > * + *{
+	margin-left: 16px;
+}
+
+html{
+	background: #f1592a;
+	color: #fff;
+}
+
+.section{
+	border: solid 2px #fff;
+	border-radius: 4px;
+	padding: 16px;
+	width: 100%;
+}
+
+form * + *{
+	margin-top: 16px;
+}
+
+.mod-drop input{
+	margin-top: 0;
+	background: none;
+	color: #fff;
+	border: solid 2px #fff;
+	padding: 2px 2px 0 2px;
+}
+
+input[type=text]{
+	cursor: text;
+}
+
+input{
+	font-size: 18px;
+}
+
+label input{
+	margin-right: 16px;
+}
+
+.radio-group input{
+	margin-right: 0px;
+}
+
+select{
+	border: none;
+	padding-top: 2px;
+	color: #f1592a;
+}
+
+/*Placeholder styling*/
+.mod-drop input::placeholder{
+	color: #fff;
+}
+.mod-drop input::-moz-placeholder,
+.mod-drop input::-webkit-input-placeholder,
+.mod-drop input::-ms-input-placeholder{
+	color: #fff
+}
+
+input[type=text]:not(.mod-input),
+input[type=time]:not(.mod-input){
+	color: #f1592a;
+	border: none;
+	width: auto;
+	text-align: center;
+	width: 100%;
+}
+
+input[type=submit]{
+	width: 100%;
+	padding: 16px;
+	background: #fff;
+	color: #f1592a;
+	border-radius: 16px;
+	/*
+		border-radius: 8% / 50%;
+		8% is a placeholder^.
+		js to set this equal to 50% of the height of the element coming soon.
+		I need perfect sausages!
+	*/
+}
+
+input, 
+select,
+.radio-group label{
+	cursor: pointer;
+}

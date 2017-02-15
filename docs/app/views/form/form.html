@@ -1,5 +1,24 @@
 <div id="content">
+	<div id="title">Describe the Behaviour</div>
 	<form name="describe" id="view-changer">
-		<input type="submit" value="Login">
+		<div class="section">
+			<div class="prompt">What was it?</div>
+			<div class="mod-drop">
+				<select name="behaviour" id="behaviour-list"></select>
+			</div>
+		</div>
+		<div class="section">
+			<div class="prompt">How intense was it?</div>
+			<div class="radio-group">
+				<label><input type="radio" name="intensity" value="low">Low</label>
+				<label><input type="radio" name="intensity" value="medium">Medium</label>
+				<label><input type="radio" name="intensity" value="high">High</label>
+			</div>
+		</div>
+		<div class="section">
+			<div class="prompt">What time did it happen?</div>
+			<label><input name="time" type="time" value="12:12">(HH:MM)</label>
+		</div>
+		<input type="submit" value="Next">
 	</form>
 </div>
