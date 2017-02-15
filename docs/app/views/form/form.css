@@ -24,6 +24,7 @@ form{
 	align-items: center;
 	flex: 1;
 	overflow-y: auto;
+	min-height: min-content;
 }
 
 .mod-drop{
@@ -117,20 +118,27 @@ select{
 	border: none;
 	padding-top: 2px;
 	color: #f1592a;
+	width: 100%;
 }
 
 /*Placeholder styling*/
 .mod-drop input::placeholder{
-	color: #fff;
+	color: rgba(255,255,255,0.8);
 }
-.mod-drop input::-moz-placeholder,
-.mod-drop input::-webkit-input-placeholder,
+.mod-drop input::-moz-placeholder{
+	color: rgba(255,255,255,0.8);
+}
+
+.mod-drop input::-webkit-input-placeholder{
+	color: rgba(255,255,255,0.8);
+}
+
 .mod-drop input::-ms-input-placeholder{
-	color: #fff
+	color: rgba(255,255,255,0.8);
 }
 
 input[type=text]:not(.mod-input),
-input[type=time]:not(.mod-input){
+input[type=datetime-local]:not(.mod-input){
 	color: #f1592a;
 	border: none;
 	width: auto;
@@ -141,19 +149,25 @@ input[type=time]:not(.mod-input){
 input[type=submit]{
 	width: 100%;
 	padding: 16px;
-	background: #fff;
-	color: #f1592a;
-	border-radius: 16px;
-	/*
-		border-radius: 8% / 50%;
-		8% is a placeholder^.
-		js to set this equal to 50% of the height of the element coming soon.
-		I need perfect sausages!
-	*/
+	background: #1e6fb7;
+	color: #fff;
 }
 
 input, 
 select,
 .radio-group label{
 	cursor: pointer;
+}
+
+.select-container{
+	display: flex;
+	flex-flow: column;
+}
+
+button{
+	width: 100%;
+	padding: 8px;
+	color: #f1592a;
+	background: #fff;
+	font-size: 18px;
 }

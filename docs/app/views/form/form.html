@@ -4,8 +4,11 @@
 		<div class="section">
 			<div class="prompt">What was it?</div>
 			<div class="mod-drop">
-				<select name="behaviour" id="behaviour-list"></select>
+				<div class="select-container">
+					<select name="behaviour1" class="behaviour-list"></select>
+				</div>
 			</div>
+			<button type="button" class="sausage add-select">Add Another</button>
 		</div>
 		<div class="section">
 			<div class="prompt">How intense was it?</div>
@@ -17,8 +20,8 @@
 		</div>
 		<div class="section">
 			<div class="prompt">What time did it happen?</div>
-			<label><input name="time" type="time" value="12:12">(HH:MM)</label>
+			<label><input name="datetime" type="datetime-local" value="2017-01-01T12:12"></label>
 		</div>
-		<input type="submit" value="Next">
+		<input type="submit" class="sausage" value="Next">
 	</form>
 </div>

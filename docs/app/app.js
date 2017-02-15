@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				style = document.createElement('link');
 				style.setAttribute('rel', 'stylesheet');
 				style.setAttribute('href', 'app/views/' + view + '/' + view + '.css');
+				style.setAttribute('onload', 'makeSausages()');
 				document.head.appendChild(style);
 			}
 		};

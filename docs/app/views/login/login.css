@@ -23,6 +23,7 @@ html{
 	flex-flow: column;
 	width: 100%;
 	min-height: min-content;
+	align-items: center;
 }
 
 .login-panel * + *{
@@ -36,7 +37,8 @@ html{
 
 form{
 	align-items: center;
-	margin-bottom: 16px;
+	width: 100%;
+	max-width: 600px;
 }
 
 input{
@@ -53,7 +55,6 @@ input[type=password]{
 	padding: 2px 4px 0 4px;
 	color: #fff;
 	transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-	max-width: 600px;
 }
 
 input[type=text]:focus,
@@ -65,16 +66,22 @@ input[type=submit]{
 	padding: 16px 32px;
 	background: #fff;
 	border: none;
-	border-radius: 25% / 50%;
 	color: #f1592a;
 	animation: color-fade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+	margin-top: 32px;
 }
 
 input::placeholder{
 	color: rgba(255,255,255,0.8);
 }
-input::-moz-placeholder,
-input::-webkit-input-placeholder,
+input::-moz-placeholder{
+	color: rgba(255,255,255,0.8);
+}
+
+input::-webkit-input-placeholder{
+	color: rgba(255,255,255,0.8);
+}
+
 input::-ms-input-placeholder{
 	color: rgba(255,255,255,0.8);
 }
