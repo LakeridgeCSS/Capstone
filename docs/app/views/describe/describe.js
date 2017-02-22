@@ -1,6 +1,6 @@
 'use strict';
 document.addEventListener('viewChange', function (e) {
-	if (e.detail == 'form') {
+	if (e.detail == 'describe') {
 		let behaviours;
 		let behaviourList = document.getElementById('behaviour-list');
 		let request = new XMLHttpRequest();
@@ -16,7 +16,7 @@ document.addEventListener('viewChange', function (e) {
 				let behaviour = document.createElement('option');
 				if (eid == array.length - 1) {
 					behaviour.value = 'other';
-					behaviour.textContent = 'Other';
+					behaviour.textContent = 'Add Another Option';
 				} else {
 					behaviour.value = e.toLowerCase().replace(/\s+/g, '-');
 					behaviour.textContent = e;
@@ -38,45 +38,20 @@ document.addEventListener('viewChange', function (e) {
 					} else if (selected != 'other' && e.target.parentNode.querySelector('input[type=text]')) {
 						e.target.parentNode.querySelector('input[type=text]').remove();
 					}
-					document.querySelectorAll('.mod-input').forEach(function (e) {
-						e.addEventListener('keydown', function (k) {
-							if (k.keyCode == 13) {
-								let existing = e.parentNode.querySelectorAll('select option')
-								let existingList = [];
-								existing.forEach(function (e) {
-									existingList.push(e.value);
-								});
-								if (existingList.indexOf(this.value) === -1) {
-									let addOption = document.createElement('option');
-									addOption.setAttribute('value', this.value);
-									addOption.setAttribute('selected', 'selected');
-									addOption.innerText = this.value;
-									let customGroup =
-										e.parentNode.querySelector('select optgroup') ||
-										document.createElement('optgroup');
-									if (!customGroup.hasAttribute('label')) {
-										customGroup.setAttribute('label', 'Custom Additions');
-									}
-									customGroup.appendChild(addOption);
-									e.parentNode.querySelector('select').appendChild(customGroup);
-									e.parentNode.querySelector('input[type=text]').remove();
-								}
-								this.value = '';
-							}
-						})
-					});
 				});
 			});
 		} attach();
 
 		document.querySelectorAll('.add-select').forEach(function (e) {
 			e.addEventListener('click', function () {
-				let selectContainer = document.querySelector('.select-container');
+				let selectContainer = [].slice.call(document.querySelectorAll('.select-container')).pop();
 				let clone = selectContainer.cloneNode(true);
 				//look at this...
 				clone.querySelector('.behaviour-list').setAttribute('name',
-					'behaviour' + (parseInt(
-						clone.querySelector('.behaviour-list').getAttribute('name').slice(9)
+					'behaviour-' + (parseInt(
+						clone.querySelector('.behaviour-list').getAttribute('name').slice(
+							clone.querySelector('.behaviour-list').getAttribute('name').indexOf('-') + 1
+						)
 					) + 1)
 				);
 				if (clone.querySelector('input')) {
@@ -97,15 +72,41 @@ document.addEventListener('viewChange', function (e) {
 				pad(currentTime.getMinutes());
 		});
 
-		document.getElementById('view-changer').addEventListener('submit', function (e) {
-			e.preventDefault();
-			let form = {};
-			document.querySelectorAll('form *[name]').forEach(function(e){
-				if ((e.type == 'radio' && e.checked) || e.type != 'radio') {
-					form[e.name] = e.value;
+		['submit', 'keydown'].forEach(function (ev) {
+			document.getElementById('view-changer').addEventListener(ev, function (s) {
+				if (s.keyCode == 13) {
+					s.preventDefault();
+					let e = s.target;
+					let existing = e.parentNode.querySelectorAll('select option')
+					let existingList = [];
+					existing.forEach(function (e) {
+						existingList.push(e.value);
+					});
+					if (existingList.indexOf(e.value) === -1) {
+						let addOption = document.createElement('option');
+						addOption.setAttribute('value', e.value);
+						addOption.setAttribute('selected', 'selected');
+						addOption.innerText = e.value;
+						let customGroup =
+							e.parentNode.querySelector('select optgroup') ||
+							document.createElement('optgroup');
+						if (!customGroup.hasAttribute('label')) {
+							customGroup.setAttribute('label', 'Custom Additions');
+						}
+						customGroup.appendChild(addOption);
+						e.parentNode.querySelector('select').appendChild(customGroup);
+						e.parentNode.querySelector('input[type=text]').remove();
+					}
+					e.value = '';
+				}
+				if (ev != 'keydown') {
+					s.preventDefault();
+					document.querySelectorAll('form *[name]').forEach(function (e) {
+						sessionStorage.setItem(e.name, e.value);
+						location.hash = 'before';
+					});
 				}
 			});
-			console.log(form);
 		});
 
 		function pad(n) {
