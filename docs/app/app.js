@@ -1,9 +1,9 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', function () {
 	//add routes here
-	let routes = ['login', 'describe', 'before', 'after'];
+	var routes = ['login', 'describe', 'before', 'after'];
 	routes.forEach(function (e) {
-		let script = document.createElement('script');
+		var script = document.createElement('script');
 		script.setAttribute('src', 'app/views/' + e + '/' + e + '.js');
 		script.setAttribute('defer', 'true');
 		document.head.appendChild(script);
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	//wait for all routes
 	['load', 'hashchange'].forEach(function(e){
 		window.addEventListener(e, function(){
-			let index = 0;
+			var index = 0;
 			if (location.hash.indexOf('#') != -1) {
-				let entry = location.hash.slice(location.hash.indexOf('#') + 1);
+				var entry = location.hash.slice(location.hash.indexOf('#') + 1);
 				if (routes.indexOf(entry) != -1) {
 					index = routes.indexOf(entry);
 				}
@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	//grabs the new view and replaces stale view
 	//this is the actual router
 	function load(view) {
-		let request = new XMLHttpRequest();
+		var request = new XMLHttpRequest();
 		request.open('GET', 'app/views/' + view + '/' + view + '.html', true);
 		request.send();
 		request.onreadystatechange = function () {
 			if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
 				document.getElementById('container').innerHTML = request.response;
-				let style = document.querySelectorAll('link');
+				var style = document.querySelectorAll('link');
 				Object.keys(style).forEach(function (e) {
 					if (!style[e].getAttribute('href').includes('base.css')) {
 						//can't do view conditional css; so it's removed
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		//custom event so we don't rely on hash changes to activate views
 		request.onload = function () {
-			let viewChange = new CustomEvent('viewChange', {
+			var viewChange = new CustomEvent('viewChange', {
 				'detail': view
 			});
 			document.dispatchEvent(viewChange);

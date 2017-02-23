@@ -12,12 +12,6 @@ html{
 	padding: 60px;
 }
 
-#content {
-	flex: 1;
- 	display: flex;
-	overflow-y: auto;
-}
-
 .login-panel{
 	display: flex;
 	flex-flow: column;
@@ -33,12 +27,6 @@ html{
 .logo{
 	max-width: 600px;
 	align-self: center;
-}
-
-form{
-	align-items: center;
-	width: 100%;
-	max-width: 600px;
 }
 
 input{
@@ -69,21 +57,6 @@ input[type=submit]{
 	color: #f1592a;
 	animation: color-fade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 	margin-top: 32px;
-}
-
-input::placeholder{
-	color: rgba(255,255,255,0.8);
-}
-input::-moz-placeholder{
-	color: rgba(255,255,255,0.8);
-}
-
-input::-webkit-input-placeholder{
-	color: rgba(255,255,255,0.8);
-}
-
-input::-ms-input-placeholder{
-	color: rgba(255,255,255,0.8);
 }
 
 @keyframes color-fade{

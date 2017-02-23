@@ -1,140 +1,22 @@
-.radio-group{
-	display: flex;
-}
-
-#container{
-	flex: 1;
-}
-
-form{
-	align-items: flex-start;
-	padding: 16px;
-	min-height: min-content;
-	width: 100%;
-	max-width: 600px;
-}
-
-#behaviour-select{
-	display: flex;
-}
-
-#content{
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-	flex: 1;
-	overflow-y: auto;
-	min-height: min-content;
-}
-
-.mod-drop{
-	display: flex;
-	flex-flow: column;
-}
-
-#title{
-	font-size: 32px;
-	padding: 16px;
-	width: 100%;
-	color: #f1592a;
-	background: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.prompt{
-	font-size: 24px;
-}
-
-select,
-label{
-	font-size: 18px;
-}
-
-label{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.radio-group label{
-	margin-top: 0 !important;
-	flex: 1 0 0;
-	flex-flow: column;
-}
-
-.radio-group input{
-	height: 32px;
-	width: 32px;
-	margin: 0 0 8px 0;
-}
-
-.radio-group > * + *{
-	margin-left: 16px;
-}
-
 html{
 	background: #f1592a;
 	color: #fff;
 }
 
-.section{
-	border: solid 2px #fff;
-	border-radius: 4px;
+form{
 	padding: 16px;
-	width: 100%;
 }
 
 form * + *{
 	margin-top: 16px;
 }
 
-.mod-drop input{
-	margin-top: 0;
-	background: none;
-	color: #fff;
-	border: solid 2px #fff;
-	padding: 2px 2px 0 2px;
-}
-
-input[type=text]{
-	cursor: text;
-}
-
-input{
-	font-size: 18px;
+select{
+	color: #f1592a;
 }
 
 label input{
 	margin-right: 16px;
-}
-
-.radio-group input{
-	margin-right: 0px;
-}
-
-select{
-	border: none;
-	padding-top: 2px;
-	color: #f1592a;
-	width: 100%;
-}
-
-/*Placeholder styling*/
-.mod-drop input::placeholder{
-	color: rgba(255,255,255,0.8);
-}
-.mod-drop input::-moz-placeholder{
-	color: rgba(255,255,255,0.8);
-}
-
-.mod-drop input::-webkit-input-placeholder{
-	color: rgba(255,255,255,0.8);
-}
-
-.mod-drop input::-ms-input-placeholder{
-	color: rgba(255,255,255,0.8);
 }
 
 input[type=text]:not(.mod-input),
@@ -153,21 +35,35 @@ input[type=submit]{
 	color: #fff;
 }
 
-input, 
-select,
+button{
+	color: #f1592a;
+}
+
+#title{
+	color: #f1592a;
+}
+
+.radio-group{
+	display: flex;
+}
+
 .radio-group label{
+	margin-top: 0 !important;
+	flex: 1 0 0;
+	flex-flow: column;
 	cursor: pointer;
 }
 
-.select-container{
-	display: flex;
-	flex-flow: column;
+.radio-group input{
+	height: 32px;
+	width: 32px;
+	margin: 0 0 8px 0;
 }
 
-button{
-	width: 100%;
-	padding: 8px;
-	color: #f1592a;
-	background: #fff;
-	font-size: 18px;
+.radio-group > * + *{
+	margin-left: 16px;
+}
+
+.radio-group input{
+	margin-right: 0px;
 }
