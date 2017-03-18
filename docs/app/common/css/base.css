@@ -130,3 +130,8 @@ input::-webkit-input-placeholder{
 input::-ms-input-placeholder{
 	color: #fff;
 }
+
+input[disabled="disabled"]{
+	color: #aaa !important;
+	cursor: default;
+}

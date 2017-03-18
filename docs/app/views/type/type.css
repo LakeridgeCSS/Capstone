@@ -1,0 +1,21 @@
+html{
+	background: #f1592a;
+	animation: background-fade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+#container{
+	padding: 60px;
+}
+
+input{
+	font-size: 32px;
+}
+
+input[type=submit]{
+	padding: 16px 32px;
+	background: #fff;
+	border: none;
+	color: #f1592a;
+	animation: color-fade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+	margin-top: 32px;
+}

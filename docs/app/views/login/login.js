@@ -7,7 +7,7 @@ document.addEventListener('viewChange', function (e) {
 			//authentication can be implemented here once we have a backend
 			//if auth == success...
 			sessionStorage.clear();
-			location.hash = 'describe';
+			location.hash = 'type';
 			//else do some error
 		});
 	}

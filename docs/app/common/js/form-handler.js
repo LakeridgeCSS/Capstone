@@ -100,7 +100,8 @@ document.addEventListener('viewChange', function(e){
 				var dataSave = new Event('dataSave');
 				Object.keys(named).forEach(function (e) {
 					sessionStorage.setItem(named[e].name, named[e].value);
-				}, document.dispatchEvent(dataSave));
+				});
+				document.dispatchEvent(dataSave);
 			}
 		});
 	});

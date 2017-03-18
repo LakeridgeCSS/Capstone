@@ -1,7 +1,7 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', function () {
 	//add routes here
-	var routes = ['login', 'describe', 'before', 'after'];
+	var routes = ['login', 'type', 'describe', 'before', 'after'];
 	routes.forEach(function (e) {
 		var script = document.createElement('script');
 		script.setAttribute('src', 'app/views/' + e + '/' + e + '.js');
