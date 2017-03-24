@@ -51,10 +51,10 @@ document.addEventListener('viewChange', function(e){
 			var selectContainer = [].slice.call(document.querySelectorAll('.select-container')).pop();
 			var clone = selectContainer.cloneNode(true);
 			//look at this...
-			clone.querySelector('.behaviour-list').setAttribute('name',
-				'behaviour-' + (parseInt(
-					clone.querySelector('.behaviour-list').getAttribute('name').slice(
-						clone.querySelector('.behaviour-list').getAttribute('name').indexOf('-') + 1
+			clone.querySelector('.causes-list').setAttribute('name',
+				'cause-' + (parseInt(
+					clone.querySelector('.causes-list').getAttribute('name').slice(
+						clone.querySelector('.causes-list').getAttribute('name').indexOf('-') + 1
 					)
 				) + 1)
 			);
